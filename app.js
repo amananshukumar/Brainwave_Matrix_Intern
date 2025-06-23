@@ -6,15 +6,15 @@ const cors = require('cors');
 const { CohereClient } = require('cohere-ai');
 const Task = require('./models/Task');
 
-// Initialize Express
+
 const app = express();
 
-// Initialize Cohere AI
+
 const cohere = new CohereClient({
   token: process.env.COHERE_API_KEY
 });
 
-// Database connection
+
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -22,13 +22,13 @@ mongoose.connect(process.env.MONGODB_URI, {
 .then(() => console.log('✅ Connected to MongoDB'))
 .catch(err => console.error('❌ MongoDB connection error:', err));
 
-// Middleware
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// View engine setup
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
@@ -52,7 +52,7 @@ app.get('/', async (req, res) => {
   }
 });
 
-// API Routes
+
 app.post('/api/tasks', async (req, res) => {
   try {
     const task = new Task({
@@ -70,7 +70,7 @@ app.post('/api/tasks', async (req, res) => {
 
 app.post('/tasks', async (req, res) => {
   try {
-    // Input validation
+    
     if (!req.body.title || req.body.title.trim() === '') {
       return res.status(400).json({ message: 'Title is required' });
     }
@@ -112,7 +112,7 @@ app.patch('/api/tasks/:id', async (req, res) => {
 // Delete task route
 app.delete('/tasks/:id', async (req, res) => {
   try {
-    // Validate ID format
+   
     if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
       return res.status(400).json({ error: 'Invalid task ID format' });
     }
@@ -138,7 +138,7 @@ app.delete('/tasks/:id', async (req, res) => {
   }
 });
 
-// AI Suggestions Endpoint
+
 // AI Suggestions Endpoint
 app.post('/api/suggest-tasks', async (req, res) => {
   try {
