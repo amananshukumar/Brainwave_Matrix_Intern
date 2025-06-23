@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Dark mode toggle
+ 
     const darkModeToggle = document.getElementById('darkModeToggle');
     const html = document.documentElement;
     
-    // Check for saved theme preference
+   
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         html.setAttribute('data-bs-theme', 'dark');
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Task status toggle
+  
     document.querySelectorAll('.task-status').forEach(checkbox => {
         checkbox.addEventListener('change', function() {
             const taskId = this.closest('tr').getAttribute('data-id');
@@ -43,8 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Delete task
-   // Delete Task Functionality
 document.addEventListener('click', async (e) => {
   if (e.target.classList.contains('delete-task') || 
       e.target.closest('.delete-task')) {
@@ -68,11 +66,11 @@ document.addEventListener('click', async (e) => {
           throw new Error(errorData.error || 'Failed to delete task');
         }
 
-        // Remove the task row visually
+       
         taskRow.style.opacity = '0';
         setTimeout(() => taskRow.remove(), 300);
         
-        // Optionally show success message
+      
         showAlert('Task deleted successfully!', 'success');
         
       } catch (err) {
@@ -83,7 +81,7 @@ document.addEventListener('click', async (e) => {
   }
 });
 
-// Helper function for alerts
+
 function showAlert(message, type) {
   const alertDiv = document.createElement('div');
   alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed top-0 end-0 m-3`;
@@ -94,7 +92,7 @@ function showAlert(message, type) {
   document.body.appendChild(alertDiv);
   setTimeout(() => alertDiv.remove(), 5000);
 }
-    //save task
+  
  document.getElementById('saveTask').addEventListener('click', async function() {
   const taskData = {
     title: document.getElementById('taskTitle').value,
@@ -119,7 +117,7 @@ function showAlert(message, type) {
       throw new Error(result.message || 'Failed to save task');
     }
 
-    // Success - close modal and refresh
+   
     bootstrap.Modal.getInstance(document.getElementById('taskModal')).hide();
     location.reload();
     
@@ -129,15 +127,13 @@ function showAlert(message, type) {
   }
 });
     
-    // AI suggestions
-    // Get AI Suggestions
-// Get AI Suggestions
+   
 document.getElementById('getSuggestions').addEventListener('click', async function() {
   const promptInput = document.getElementById('aiPrompt');
   const suggestionsContainer = document.getElementById('suggestions');
   const button = this;
   
-  // Validate input
+
   if (!promptInput.value.trim()) {
     showAlert('Please describe what you need help with', 'warning');
     promptInput.focus();
@@ -145,17 +141,17 @@ document.getElementById('getSuggestions').addEventListener('click', async functi
   }
 
   try {
-    // Show loading state
+   
     button.disabled = true;
     button.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Thinking...';
     suggestionsContainer.innerHTML = '<div class="text-center my-3"><div class="spinner-border text-purple"></div></div>';
 
-    // Get current tasks for context
+  
     const currentTasks = Array.from(document.querySelectorAll('#taskList tr'))
       .map(row => row.querySelector('h5').textContent)
       .join(', ');
 
-    // Call API
+ 
     const response = await fetch('/api/suggest-tasks', {
       method: 'POST',
       headers: {
@@ -191,7 +187,7 @@ document.getElementById('getSuggestions').addEventListener('click', async functi
 function displaySuggestions(suggestionsText) {
   const suggestionsContainer = document.getElementById('suggestions');
   
-  // Convert text to HTML list
+
   const htmlSuggestions = suggestionsText
     .split('\n')
     .filter(line => line.trim())
@@ -212,7 +208,6 @@ function displaySuggestions(suggestionsText) {
     </button>
   `;
 
-  // Add click handler for "Add All" button
   document.getElementById('addAllSuggestions').addEventListener('click', () => {
     addTasksFromSuggestions(suggestionsText);
   });
@@ -256,7 +251,7 @@ function showAlert(message, type) {
   document.body.appendChild(alertDiv);
   setTimeout(() => alertDiv.remove(), 5000);
 }
-    // AI Help button
+  
     document.getElementById('aiHelpBtn').addEventListener('click', function() {
         const currentTasks = Array.from(document.querySelectorAll('#taskList tr')).map(tr => {
             return tr.querySelector('h5').textContent;
@@ -265,7 +260,7 @@ function showAlert(message, type) {
         document.getElementById('aiPrompt').value = 
             `I currently have these tasks: ${currentTasks}. Can you suggest how to prioritize my day and any additional tasks I might need?`;
         
-        // Scroll to the AI section
+  
         document.querySelector('.col-md-4').scrollIntoView({ behavior: 'smooth' });
     });
 });
