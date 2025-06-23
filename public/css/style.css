@@ -1,0 +1,220 @@
+/* Purple Theme Styles */
+:root {
+  --primary-purple: #6a0dad;
+  --secondary-purple: #9b59b6;
+  --light-purple: #d8bfd8;
+  --dark-purple: #4b0082;
+  --text-light: #ffffff;
+  --text-dark: #333333;
+}
+
+/* Base Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f3ff;
+  color: var(--text-dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  background-color: var(--primary-purple);
+  color: var(--text-light);
+  padding: 1rem 0;
+  box-shadow: 0 4px 12px rgba(106, 13, 173, 0.2);
+}
+
+/* Cards */
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(106, 13, 173, 0.1);
+  transition: transform 0.3s ease;
+  background-color: white;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(106, 13, 173, 0.15);
+}
+
+.card-header {
+  background-color: var(--primary-purple);
+  color: white;
+  border-radius: 12px 12px 0 0 !important;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--primary-purple);
+  border-color: var(--dark-purple);
+}
+
+.btn-primary:hover {
+  background-color: var(--dark-purple);
+  border-color: var(--primary-purple);
+}
+
+.btn-outline-primary {
+  color: var(--primary-purple);
+  border-color: var(--primary-purple);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-purple);
+  color: white;
+}
+
+/* Task Items */
+.task-item {
+  border-left: 4px solid var(--secondary-purple);
+  transition: all 0.3s ease;
+}
+
+.task-item:hover {
+  background-color: #f3e5ff;
+  border-left: 4px solid var(--primary-purple);
+}
+
+/* Priority Badges */
+.badge.bg-high {
+  background-color: var(--dark-purple) !important;
+}
+
+.badge.bg-medium {
+  background-color: var(--secondary-purple) !important;
+}
+
+.badge.bg-low {
+  background-color: var(--light-purple) !important;
+  color: var(--text-dark);
+}
+
+/* Form Elements */
+.form-control:focus, .form-select:focus {
+  border-color: var(--secondary-purple);
+  box-shadow: 0 0 0 0.25rem rgba(155, 89, 182, 0.25);
+}
+
+/* Dark Mode */
+[data-bs-theme="dark"] {
+  --primary-purple: #8a2be2;
+  --secondary-purple: #9370db;
+  
+  body {
+    background-color: #1a0033;
+    color: #e6e6e6;
+  }
+  
+  .card {
+    background-color: #2d004d;
+    border-color: #4b0082;
+  }
+  
+  .task-item:hover {
+    background-color: #3d0066;
+  }
+}
+
+/* Animations */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(155, 89, 182, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(155, 89, 182, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(155, 89, 182, 0); }
+}
+
+.highlight {
+  animation: pulse 1.5s infinite;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .card {
+    margin-bottom: 1.5rem;
+  }
+}
+/* Purple Header Styles */
+.header-purple {
+  background: linear-gradient(135deg, #6a0dad 0%, #8a2be2 100%);
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 4px 20px rgba(106, 13, 173, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.header-purple::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+  transform: rotate(30deg);
+}
+
+.app-title {
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin: 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.app-title i {
+  font-size: 1.5em;
+  color: #d8bfd8;
+}
+
+/* Dark mode adjustments */
+[data-bs-theme="dark"] .header-purple {
+  background: linear-gradient(135deg, #4b0082 0%, #6a0dad 100%);
+}
+
+[data-bs-theme="dark"] .app-title i {
+  color: #b19cd9;
+}
+/* AI Suggestions Styles */
+/* AI Suggestions Styles */
+.suggestions-list {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.suggestion-item {
+  padding: 0.5rem;
+  border-left: 3px solid #6a0dad;
+  margin-bottom: 0.5rem;
+  background-color: white;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.suggestion-item:hover {
+  background-color: #f3e5ff;
+  transform: translateX(5px);
+}
+
+.text-purple {
+  color: #6a0dad !important;
+}
+
+/* Dark mode adjustments */
+[data-bs-theme="dark"] .suggestions-list {
+  background-color: #2d2d2d;
+}
+
+[data-bs-theme="dark"] .suggestion-item {
+  background-color: #1e1e1e;
+}
+
+[data-bs-theme="dark"] .suggestion-item:hover {
+  background-color: #3d0066;
+}
