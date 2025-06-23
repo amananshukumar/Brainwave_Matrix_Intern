@@ -1,4 +1,4 @@
-/* Purple Theme Styles */
+
 :root {
   --primary-purple: #6a0dad;
   --secondary-purple: #9b59b6;
@@ -8,7 +8,7 @@
   --text-dark: #333333;
 }
 
-/* Base Styles */
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f9f3ff;
@@ -18,7 +18,7 @@ body {
   flex-direction: column;
 }
 
-/* Header */
+
 header {
   background-color: var(--primary-purple);
   color: var(--text-light);
@@ -26,7 +26,7 @@ header {
   box-shadow: 0 4px 12px rgba(106, 13, 173, 0.2);
 }
 
-/* Cards */
+
 .card {
   border: none;
   border-radius: 12px;
@@ -46,7 +46,7 @@ header {
   border-radius: 12px 12px 0 0 !important;
 }
 
-/* Buttons */
+
 .btn-primary {
   background-color: var(--primary-purple);
   border-color: var(--dark-purple);
@@ -67,7 +67,7 @@ header {
   color: white;
 }
 
-/* Task Items */
+
 .task-item {
   border-left: 4px solid var(--secondary-purple);
   transition: all 0.3s ease;
@@ -78,7 +78,7 @@ header {
   border-left: 4px solid var(--primary-purple);
 }
 
-/* Priority Badges */
+
 .badge.bg-high {
   background-color: var(--dark-purple) !important;
 }
@@ -92,13 +92,13 @@ header {
   color: var(--text-dark);
 }
 
-/* Form Elements */
+
 .form-control:focus, .form-select:focus {
   border-color: var(--secondary-purple);
   box-shadow: 0 0 0 0.25rem rgba(155, 89, 182, 0.25);
 }
 
-/* Dark Mode */
+
 [data-bs-theme="dark"] {
   --primary-purple: #8a2be2;
   --secondary-purple: #9370db;
@@ -118,7 +118,7 @@ header {
   }
 }
 
-/* Animations */
+
 @keyframes pulse {
   0% { box-shadow: 0 0 0 0 rgba(155, 89, 182, 0.7); }
   70% { box-shadow: 0 0 0 10px rgba(155, 89, 182, 0); }
@@ -129,13 +129,13 @@ header {
   animation: pulse 1.5s infinite;
 }
 
-/* Responsive Adjustments */
+
 @media (max-width: 768px) {
   .card {
     margin-bottom: 1.5rem;
   }
 }
-/* Purple Header Styles */
+
 .header-purple {
   background: linear-gradient(135deg, #6a0dad 0%, #8a2be2 100%);
   color: white;
@@ -171,7 +171,7 @@ header {
   color: #d8bfd8;
 }
 
-/* Dark mode adjustments */
+
 [data-bs-theme="dark"] .header-purple {
   background: linear-gradient(135deg, #4b0082 0%, #6a0dad 100%);
 }
@@ -179,8 +179,7 @@ header {
 [data-bs-theme="dark"] .app-title i {
   color: #b19cd9;
 }
-/* AI Suggestions Styles */
-/* AI Suggestions Styles */
+
 .suggestions-list {
   background-color: #f8f9fa;
   border-radius: 8px;
@@ -206,7 +205,7 @@ header {
   color: #6a0dad !important;
 }
 
-/* Dark mode adjustments */
+
 [data-bs-theme="dark"] .suggestions-list {
   background-color: #2d2d2d;
 }
